@@ -7,12 +7,12 @@ function TodoList() {
     const [todoData, setTodoData] = useState([])
    
     const getData= function(){
-        axios.get("https://jsonplaceholder.typicode.com/todos/?_limit=10").then((response)=>{
+        axios.get("https://jsonplaceholder.typicode.com/todos/?_limit=30").then((response)=>{
             if(response.status >= 200 && response.status <300){
                 const result = response.data.map(obj => ({userId :obj.userId, id:obj.id, title:obj.title, completed: obj.completed }))
                 setTodoData(result)
             }else{
-             
+                console.log("Data not loaded")
             }
         })
     }

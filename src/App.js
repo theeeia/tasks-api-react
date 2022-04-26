@@ -1,17 +1,19 @@
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import TodoList from "./components/TodoList"
-import {TodoProvider} from "./context/TodoContext"
+import UserDetails from './components/UserDetails';
+
 
 function App() {
 
 
   return (
-    <TodoProvider>
-      <TodoList>
-
-      </TodoList>
-
-    </TodoProvider>
-    
+  <Router>
+    <Routes>
+      <Route exact path="/" element={<TodoList/>}> </Route>
+      <Route exact path="/users/:id" element={<UserDetails/>} ></Route>
+    </Routes>
+  </Router>
+     
   );
 }
 

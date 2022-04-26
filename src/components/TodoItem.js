@@ -1,13 +1,20 @@
 import React from 'react'
 import {FaTrashAlt, FaCheck} from "react-icons/fa"
+import { Link } from 'react-router-dom'
+
 function TodoItem({object, deleteItem, toggleStatus}) {
 
   return (
     <div className='todoItem'> 
-        <div className={"todoTitle "+ (object.completed ? 'completeTitle' : 'notCompleteTitle')}>
-            <p>{object.title}</p>
-        </div>
-        <div className='todoButt'>
+
+        <Link to={"/users/"+ object.userId} 
+           
+            className={"todoTitle "+ (object.completed ? 'completeTitle' : 'notCompleteTitle')}>
+             <p>{object.title}</p>
+         
+        </Link>
+        
+        <div className='todoButton'>
             <button className='deleteBtn' onClick={() => {deleteItem()}}>
                         <FaTrashAlt color="red">
 
